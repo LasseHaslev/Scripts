@@ -33,8 +33,11 @@ echo "// Description: New project
 // Author: Jonas Knarbakk
 
 #include <cstdio>
+using namespace std;
 
 int main( int argc, char ** argv ){
+
     puts("Hello World!");
     return 0;
+
 }" > $PWD/$pname/src/main.cpp
