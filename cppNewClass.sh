@@ -10,4 +10,4 @@ touch $PWD/$cname.h
 echo "
 
 $cname.o: \$(SRC)$cname.cpp \$(SRC)$cname.h
-\t\$(CXX) \$(CXXFLAGS) \$(SRC)$cname.cpp" >> $PWD/makefile
+\t\$(CXX) \$(CXXFLAGS) \$(SRC)$cname.cpp" >> $PWD/../Makefile
