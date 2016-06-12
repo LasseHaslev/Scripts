@@ -9,11 +9,11 @@ mkdir $PWD/$pname
 mkdir $PWD/$pname/src $PWD/$pname/out $PWD/$pname/lib
 touch $PWD/$pname/Makefile
 echo "# Wich compiler to use
-CC=g++
+CXX=g++
 
 # Wich options to compile with
-# -std=c++0x use g++11 compiler, -c compile into an object file.
-CFLAGS=-std=c++0x -c
+# -std=c++11 use g++11 compiler, -c compile into an object file, -Wall turn on all warnings.
+CXXFLAGS=-std=c++11 -c -Wall
 
 # Directories for source files and output file
 SRC=src/
@@ -21,10 +21,10 @@ LIB=lib/
 OUT=out/
 
 output: \$(SRC)main.o
-\t\$(CC) \$(SRC)main.o -o \$(OUT)main
+\t\$(CXX) \$(SRC)main.o -o \$(OUT)main
 
 main.o: \$(SRC)main.cpp
-\t\$(CC) \$(CFLAGS) \$(SRC)main.cpp
+\t\$(CXX) \$(CXXFLAGS) \$(SRC)main.cpp
 
 clean:
-\trm -rf *.o main" > $PWD/$pname/Makefile
+\trm */*.o */main" > $PWD/$pname/Makefile
