@@ -3,7 +3,7 @@
 # This script is used to create a default setup for a new
 # c++ project, includes a dummy makefile for g++11.
 
-echo -n "Enter Project Name: > "
+echo -n "Enter Project Name: "
 read pname
 mkdir $PWD/$pname
 mkdir $PWD/$pname/src $PWD/$pname/out $PWD/$pname/lib

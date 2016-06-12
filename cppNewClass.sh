@@ -3,10 +3,11 @@
 # This script makes a new class and header files and adds it
 # to the makefile in the current working directory
 
-echo "Class name: "
+echo -n "Class name: "
 read cname
 touch $PWD/src/$cname.cpp
+touch $PWD/src/$cname.h
 echo "
 
-$cname.o: $PWD/$cname.cpp $PWD/$cname.h
-\tg++ -std=c++0x -c $PWD/$cname.cpp" >> $PWD/makefile
+$cname.o: \$(SRC)$cname.cpp \$(SRC)$cname.h
+\t\$(CXX) \$(CXXFLAGS) \$(SRC)$cname.cpp" >> $PWD/makefile
