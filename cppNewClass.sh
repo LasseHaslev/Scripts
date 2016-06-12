@@ -5,8 +5,8 @@
 
 echo -n "Class name: "
 read cname
-touch $PWD/src/$cname.cpp
-touch $PWD/src/$cname.h
+touch $PWD/$cname.cpp
+touch $PWD/$cname.h
 echo "
 
 $cname.o: \$(SRC)$cname.cpp \$(SRC)$cname.h
