@@ -37,4 +37,4 @@ echo "// Description: New project
 int main( int argc, char ** argv ){
     puts("Hello World!");
     return 0;
-}" > $PWD/$pname/stc/main.cpp
+}" > $PWD/$pname/src/main.cpp
