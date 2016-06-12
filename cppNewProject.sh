@@ -8,6 +8,7 @@ read pname
 mkdir $PWD/$pname
 mkdir $PWD/$pname/src $PWD/$pname/out $PWD/$pname/lib
 touch $PWD/$pname/Makefile
+touch $PWD/$pname/src/main.cpp
 echo "# Wich compiler to use
 CXX=g++
 
@@ -28,3 +29,12 @@ main.o: \$(SRC)main.cpp
 
 clean:
 \trm */*.o */main" > $PWD/$pname/Makefile
+echo "// Description: New project
+// Author: Jonas Knarbakk
+
+#include <cstdio>
+
+int main( int argc, char ** argv ){
+    puts("Hello World!");
+    return 0;
+}" > $PWD/$pname/stc/main.cpp
