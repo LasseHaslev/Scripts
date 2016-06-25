@@ -6,7 +6,7 @@
 echo -n "Enter Project Name: "
 read pname
 mkdir $PWD/$pname
-mkdir $PWD/$pname/src $PWD/$pname/out $PWD/$pname/lib
+mkdir $PWD/$pname/src
 touch $PWD/$pname/Makefile
 touch $PWD/$pname/src/main.cpp
 echo "# Wich compiler to use
@@ -16,24 +16,26 @@ CXX=g++
 # -std=c++11 use g++11 compiler, -c compile into an object file, -Wall turn on all warnings.
 CXXFLAGS=-std=c++11 -c -Wall
 
-# Directories for source files and output file
-SRC=src/
-LIB=lib/
-OUT=out/
+# Linking libraries
+LDFLAGS = 
 
-output: \$(SRC)main.o
-\t\$(CXX) \$(SRC)main.o -o \$(OUT)main
+SOURCES = src/main.cpp
+OBJECTS = \$(SOURCES:.cpp=.o)
 
-main.o: \$(SRC)main.cpp
-\t\$(CXX) \$(CXXFLAGS) \$(SRC)main.cpp
+EXECUTABLE = main
 
-clean:
-\trm */*.o */main" > $PWD/$pname/Makefile
+all: \$(SOURCES) \$(EXECUTABLE)
+
+\$(EXECUTABLE): \$(OBJECTS)
+\t\$(CXX) \$(LDFLAGS) \$(OBJECTS) -o \$@
+
+.cpp.o:
+\t\$(CXX) \$(CXXFLAGS) \$< -o \$@" > $PWD/$pname/Makefile
+
 echo "// Description: New project
 // Author: Jonas Knarbakk
 
 #include <cstdio>
-using namespace std;
 
 int main( int argc, char ** argv ){
 
