@@ -1,0 +1,36 @@
+#! bin/bash
+
+# This script makes a new class and header files and adds it
+# to the makefile in the current working directory
+
+# Promt the user for a class name, then create cpp and header file.
+echo -n "Class name: "
+read cname
+touch $PWD/src/$cname.cpp
+touch $PWD/src/$cname.h
+
+# Fill inn the template for the header file.
+echo "#ifndef ${cname^^}_H
+#define ${cname^^}_H
+
+class ${cname^}{
+    private:
+
+    public:
+};
+
+#endif" >> $PWD/src/$cname.h
+
+# Get the time in hh:mm:ss dd/mm/yy format.
+$date = date +"%T %d/%m/%y"
+
+# Fill inn template text in the cpp file.
+echo "// Description: New Class
+// Created by Jonas Knarbakk ($date)
+
+#include \"$cname.h\"" >> $PWD/src/$cname.cpp
+
+# Search for match and append filename to the end of the line.
+sed -i "/SOURCES\ =\ src\/main.cpp/ s/$/ src\/$cname.cpp/" $PWD/Makefile
+# Search for a match and append filename right after match.
+# sed -i "s/^\t\$(CXX)\ \$(SRC)main.o/&\ \$(SRC)$cname.o/" $PWD/Makefile

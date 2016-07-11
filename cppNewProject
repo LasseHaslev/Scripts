@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # This script is used to create a default setup for a new
 # c++ project, includes a dummy makefile for g++11.
@@ -27,7 +27,7 @@ EXECUTABLE = main
 all: \$(SOURCES) \$(EXECUTABLE)
 
 \$(EXECUTABLE): \$(OBJECTS)
-\t\$(CXX) \$(LDFLAGS) \$(OBJECTS) -o \$@
+\t\$(CXX) \$(OBJECTS) \$(LDFLAGS) -o \$@
 
 .cpp.o:
 \t\$(CXX) \$(CXXFLAGS) \$< -o \$@" > $PWD/$pname/Makefile
