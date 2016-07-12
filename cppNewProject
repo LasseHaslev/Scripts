@@ -9,6 +9,9 @@ mkdir $PWD/$pname
 mkdir $PWD/$pname/src
 touch $PWD/$pname/Makefile
 touch $PWD/$pname/src/main.cpp
+
+$date = date +"%T %d/%m/%y"
+
 echo "# Wich compiler to use
 CXX=g++
 
@@ -33,7 +36,7 @@ all: \$(SOURCES) \$(EXECUTABLE)
 \t\$(CXX) \$(CXXFLAGS) \$< -o \$@" > $PWD/$pname/Makefile
 
 echo "// Description: New project
-// Author: Jonas Knarbakk
+// Author: Jonas Knarbakk ($date)
 
 #include <cstdio>
 
